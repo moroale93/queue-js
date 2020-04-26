@@ -7,7 +7,11 @@
     "build": "webpack",
     "start": "node ./dist/index.js",
   },
-  "author": "moro_ale_93",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moroale93/queue-js"
+  },
+  "author": "moroale93",
   "license": "MIT",
   "peerDependencies": {
     "rxjs": "^6.5.5"
