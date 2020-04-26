@@ -1,17 +1,21 @@
-import { Subject } from 'rxjs';
-
+import SubjectObject from './subject-object.js';
 import STATUS from './status.js';
+import { DEFAULT_QUEUE_NAME } from './consts.js';
 
-export default class Queue {
-	constructor(name = 'default') {
-		this.statusSubject = new Subject();
+export default class Queue extends SubjectObject {
+	constructor(name = DEFAULT_QUEUE_NAME) {
+		super();
 		this.name = name;
 		this.queue = [];
-		this.status = false;
+		this.status = STATUS.DONE;
+		this.metadata = undefined;
 	}
 
-	getSubject() {
-		return this.statusSubject;
+	getMetadata() {
+		if (this.queue.length) {
+			return this.queue[0].metadata;
+		}
+		return undefined;
 	}
 
 	insert(promise, metadata) {
@@ -21,8 +25,8 @@ export default class Queue {
 		});
 		if (this.status === STATUS.DONE) {
 			this.status = STATUS.PROGRESS;
+			this._precessNextItems();
 		}
-		this._executeQueue();
 	}
 
 	retry() {
@@ -62,15 +66,4 @@ export default class Queue {
 				return err;
 			});
 	};
-
-	_executeQueue() {
-		if (
-			[STATUS.PROGRESS, STATUS.ERROR].indexOf(this.status) !== -1
-			|| this.queue.length === 0
-		) {
-			return false;
-		}
-		this._precessNextItems();
-		return true;
-	}
 }

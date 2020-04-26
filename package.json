@@ -1,8 +1,13 @@
 {
   "name": "queue-rxjs",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "A queue that allows you to susbscibe to changes with RxJS",
-  "main": "dist/index.js",
+  "main": "index.js",
+  "keywords": [
+    "queue",
+    "rx-js",
+    "autosaving"
+  ],
   "scripts": {
     "build": "webpack",
     "start": "node ./dist/index.js"
