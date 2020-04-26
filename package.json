@@ -1,6 +1,6 @@
 {
   "name": "queue-rxjs",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A queue that allows you to susbscibe to changes with RxJS",
   "main": "index.js",
   "keywords": [
