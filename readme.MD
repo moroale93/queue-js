@@ -1,6 +1,5 @@
 ```js
-import Queue from './src/queue';
-import STATUS from './src/status';
+import { Queue, STATUS } from 'queue-rxjs';
 
 const queue = new Queue();
 

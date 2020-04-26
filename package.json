@@ -1,11 +1,11 @@
 {
-  "name": "queue-js",
-  "version": "1.0.0",
-  "description": "",
+  "name": "queue-rxjs",
+  "version": "1.0.2",
+  "description": "A queue that allows you to susbscibe to changes with RxJS",
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack",
-    "start": "node ./dist/index.js",
+    "start": "node ./dist/index.js"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,5 @@
 import Queue from './src/queue';
 import STATUS from './src/status';
 
-exports.default = Queue;
+exports.Queue = Queue;
 exports.STATUS = STATUS;
